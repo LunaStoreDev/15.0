@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LunaStore</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="css/splash.css">
+    <link rel="shortcut icon" href="favicon.ico">
+    <script defer src="script.js" data-website-id="eb1cd83c-610b-4ca6-80c2-b7814e3d2948"></script>
+    <!--[if lte IE 6]><link rel="stylesheet" href="./css/splash_ie6.css" media="screen, projection"><![endif]-->
+    <style>
+        /* ===== ЛЁГКИЙ РЕСТАЙЛИНГ ПОВЕРХ ТВОЕГО splash.css ===== */
+        body {
+            background: #0f2b4f;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            background-image: url('img/cover.jpg');
+            background-size: 256px 256px;
+            background-repeat: repeat;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 20, 40, 0.6);
+            z-index: 0;
+        }
+
+        .container_w {
+            position: relative;
+            z-index: 2;
+            max-width: 1100px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(4px);
+            border-radius: 70px;
+            padding: 60px 50px;
+            box-shadow: 0 40px 70px rgba(0, 0, 0, 0.8);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            text-align: center;
+        }
+
+        /* контейнер для логотипа - очень большой */
+        .logo_medium_container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 35px;
+        }
+
+        .logo_medium {
+            width: 550px;
+            height: auto;
+            max-height: 200px;
+            object-fit: contain;
+            filter: drop-shadow(0 15px 25px rgba(0, 20, 40, 0.6));
+        }
+
+        /* контейнер для большой картинки по середине */
+        .monitor_center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 25px 0 40px;
+        }
+
+        .big_monitor {
+            max-width: 100%;
+            height: auto;
+            border-radius: 28px;
+            box-shadow: 0 25px 40px rgba(0, 0, 0, 0.6);
+            border: 5px solid #bed9ff;
+        }
+
+        /* информационный блок */
+        .info_splash {
+            background: rgba(230, 242, 255, 0.8);
+            border: 3px solid #aac3da;
+            border-radius: 50px;
+            padding: 28px 32px;
+            font-size: 1.3rem;
+            color: #0a2647;
+            margin: 30px 0 35px;
+            box-shadow: inset 0 2px 12px white, 0 12px 30px rgba(0, 0, 0, 0.25);
+            line-height: 1.7;
+            backdrop-filter: blur(2px);
+        }
+
+        /* КНОПКА */
+        .message {
+            margin: 30px 0 25px;
+        }
+
+        .st_inst_button {
+            background: #2e5f8a;
+            color: white;
+            padding: 14px 40px;
+            border-radius: 80px;
+            font-size: 1.7rem;
+            font-weight: 700;
+            border: 4px solid #bed9ff;
+            display: inline-block;
+            box-shadow: 0 6px 0 #153b5a, 0 10px 25px rgba(0, 0, 0, 0.4);
+            transition: 0.08s linear;
+            text-decoration: none;
+        }
+
+        .st_inst_button:hover {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 #153b5a, 0 15px 30px rgba(0, 0, 0, 0.45);
+            background: #1f4f7a;
+        }
+
+        /* переключатель языков */
+        .lang_switch {
+            margin-top: 40px;
+            font-size: 1.3rem;
+            color: #e0ecff;
+            text-shadow: 0 2px 8px #041b30;
+        }
+
+        .lang_switch a {
+            color: #ffeba0;
+            font-weight: 700;
+            text-decoration: none;
+            border-bottom: 3px solid #ffeba0;
+            padding-bottom: 2px;
+        }
+
+        .lang_switch a:hover {
+            color: white;
+            border-bottom-color: white;
+        }
+
+        /* заглушки */
+        .big_monitor:not([src]), .big_monitor[src=""] { display: none; }
+        .logo_medium:not([src]), .logo_medium[src=""] { display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="container_w">
+
+        <!-- ЛОГОТИП ОЧЕНЬ БОЛЬШОГО РАЗМЕРА СВЕРХУ -->
+        <div class="logo_medium_container">
+            <img src="img/maintenance/main_logo.png" alt="LunaStore Logo" class="logo_medium" onerror="this.style.display='none'">
+        </div>
+
+        <!-- БОЛЬШАЯ КАРТИНКА ПО СЕРЕДИНЕ -->
+        <div class="monitor_center">
+            <img src="img/monitor.png" alt="Monitor" class="big_monitor" onerror="this.style.display='none'">
+        </div>
+
+        <!-- текст -->
+        <div class="info_splash">
+            Альтернативный магазин приложений и игр, созданный в духе эпохи Windows XP. LunaStore возрождает эстетику и простоту классических программ, предлагая удобный каталог софта для ретро-энтузиастов и пользователей устаревших систем.
+        </div>
+
+        <!-- КНОПКА -->
+        <div class="message">
+            <b class="setup">
+                <a href="pages/store/home.html" style="text-decoration: none;">
+                    <div class="st_inst_button">В магазин!</div>
+                </a>
+            </b>
+        </div>
+
+        <!-- переключатель языков -->
+        <div class="lang_switch">
+            <b>RU</b> - <a href="en-US.html?hl=en-US">EN</a>
+        </div>
+
+    </div>
+
+    <script defer src="beacon.min.js" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" crossorigin="anonymous"></script>
+</body>
+</html>
