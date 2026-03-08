@@ -6,7 +6,7 @@
   <link rel="shortcut icon" href="favicon.ico"
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    /* ----- ФОН 256x256, ПЛИТКА ----- */
+   /* ----- ФОН 256x256, ПЛИТКА ----- */
     body {
       margin: 0;
       padding: 30px 20px;
@@ -401,10 +401,35 @@
       border-color: #2563eb;
     }
 
+    /* === НОВЫЙ СТИЛЬ ДЛЯ ГАЛЕРЕИ СКРИНШОТОВ === */
+    .screenshot-gallery {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+    .screenshot-gallery img {
+      width: calc(33.333% - 10px);
+      max-width: 180px;
+      border-radius: 16px;
+      border: 2px solid #e2e8f0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s, border-color 0.2s;
+      object-fit: cover;
+      aspect-ratio: 16/9;
+      background: #f1f5f9;
+    }
+    .screenshot-gallery img:hover {
+      transform: scale(1.02);
+      border-color: #3b82f6;
+    }
+
     @media (max-width: 800px) {
       .main { flex-direction: column; }
       .sidebar { width: 100%; }
       .container { padding: 20px; }
+      .screenshot-gallery img { width: 100%; max-width: 100%; }
     }
   </style>
 </head>
@@ -474,7 +499,7 @@
         <div class="boxhead"><b>Категории</b></div>
         <div class="box">
           <ul style="list-style: none; padding: 0; margin: 0;">
-		  <a href="home.html" style="text-decoration: none;">
+           <a href="home.html" style="text-decoration: none;">
               <li style="background: #e6edf6; padding: 10px; border-radius: 12px; font-weight: 600; color: #0b2b4a; margin-bottom: 5px; display: flex; align-items: center; gap: 8px;">
                 <img src="img/home.png" class="tab-icon" alt=""> Главная страница
               </li>
@@ -484,7 +509,7 @@
                 <img src="img/apps1.png" class="tab-icon" alt=""> Все приложения
               </li>
             </a>
-            <a href="#" style="text-decoration: none;">
+            <a href="category-games.html" style="text-decoration: none;">
               <li style="background: #e6edf6; padding: 10px; border-radius: 12px; font-weight: 600; color: #0b2b4a; margin-bottom: 5px; display: flex; align-items: center; gap: 8px;">
                 <img src="img/games.png" class="tab-icon" alt=""> Игры и развлечения
               </li>
@@ -522,99 +547,85 @@
 
       <!-- КОНТЕНТ -->
       <div class="content">
-  <div class="tabs">
-    <div class="tab-bar">
-      <div class="tab active">
-        <img src="img/games.png" class="tab-icon" alt="">
-        ИГРЫ И РАЗВЛЕЧЕНИЯ
-      </div>
-    </div>
+        <div class="tabs">
+          <div class="tab-bar">
+            <div class="tab active">
+              <img src="img/tabs/store.png" class="tab-icon" alt="">
+              МАГАЗИН
+			  
+            </div>
+          </div>
 
-    <!-- 🔥 ЛОГОТИП ПОД ВКЛАДКОЙ КАК НА СКРИНЕ 🔥 -->
-    <div style="text-align: center; margin: 30px 0 20px 0;">
-      <img src="img/maintenance/main_logo.png" alt="LunaStore" style="width: 500px; height: 80px; object-fit: contain;">
-      <h2 style="font-size: 28px; font-weight: 700; color: #0a1c2f; margin-top: 10px; margin-bottom: 0;"></h2>
-      <div style="font-size: 14px; color: #5a6979; margin-top: 5px;"></div>
-    </div>
+          <!-- Логотип под вкладкой -->
+          <div style="text-align: center; margin: 30px 0 20px 0;">
+            <img src="img/maintenance/main_logo.png" alt="LunaStore" style="width: 500px; height: 80px; object-fit: contain;">
+            <h2 style="font-size: 28px; font-weight: 700; color: #0a1c2f; margin-top: 10px; margin-bottom: 0;"></h2>
+            <div style="font-size: 14px; color: #5a6979; margin-top: 5px;"></div>
+          </div>
 
-    <!-- ДАЛЬШЕ ТВОИ КАРТОЧКИ -->
-    
+          <!-- КАРТОЧКИ ПРОГРАММ (JAVA) -->
           <div class="tab-content">
 
-            <!-- КАРТОЧКИ (ТЕКСТ ТВОЙ, Я НЕ МЕНЯЛ) -->
-			
-    
-                
+            <!-- Java 8 -->
+            <div class="faq_card">
+              <img src="img/pvz.png" alt="Java">
+              <div style="flex:1;">
+                <div id="faq_title">
+                  Plants vs. Zombies HD [3.4.0]
+                  <a href="#" style="background: #800000;"><b>Демо</b></a>
+				  <a href="#" style="background: #800000;"><b>$5,99</b></a>
+                </div>
+                <div id="faq_content">
+                  Защитите свой дом от орд зомби с помощью цветов и растений! Классическая башенная защита.
+                  <div class="download-links">
+                    
+                    <a href="https://github.com/LunaStoreDev/store/releases/download/790002/PvZHD-Demo-Setup.exe">Попробовать</a>
+					<a href="https://github.com/LunaStoreDev/store/releases/download/790002/PvZHD-Setup.exe">Купить за $5,99</a>
+                  </div>
+                </div>
+				<!-- === ГАЛЕРЕЯ СКРИНШОТОВ (3 ШТУКИ) === -->
+                <div class="screenshot-gallery">
+                  <img src="img/maintenance/pvz1.jpg" alt="Скриншот 1 - Геймплей">
+                  <img src="img/maintenance/pvz2.jpg" alt="Скриншот 2 - Выбор растений">
+                  <img src="img/maintenance/pvz3.jpg" alt="Скриншот 3 - Зомби атакуют">
+                  <!-- Примечание: по запросу используется pvz1.jpg трижды, но можно заменить на pvz2.jpg, pvz3.jpg если есть -->
+                </div>
+                <!-- Если есть разные скриншоты, замените src на соответствующие файлы, например:
+                     pvz2.jpg, pvz3.jpg. Пока все три указывают на один и тот же файл, как в задании.
+                -->
+              </div>
+            </div>     
 
 
 
+ <div class="faq_card">
+              <img src="img/driver.png" alt="Java">
+              <div style="flex:1;">
+                <div id="faq_title">
+                  ScpToolkit
+                  <a href="#" style="background: #16a34a;"><b>Бесплатно</b></a>
+				  
+                </div>
+                <div id="faq_content">
+                  Набор драйверов для Dualshok3/4
+                  <div class="download-links">
+                    
+                    <a href="https://github.com/LunaStoreDev/store/releases/download/790002/ScpToolkit_Setup.exe">Установить x86/x64</a>
+					
+                  </div>
+                </div>
+              </div>
+            </div>			
+              
 
            
-			
-			
-			
-			
-			<div class="faq_card" style="background: #fff9e6; border: 1px solid #ffeeb3;">
-  <img src="img/betacraft.png" alt="icon" style="width: 32px; height: 32px; margin-top: -4px;">
-  <div style="flex:1;">
-    <div id="faq_title">
-      BetaCraft
-	  <a href="betacraft.html" style="background: #16a34a; color: white; padding: 6px 16px; border-radius: 40px; font-size: 14px; font-weight: 600; text-decoration: none; transition: 0.2s;">
-        <b>Бесплатно</b>
-</a>
-                </div>
-                <div id="faq_content">
-                  Betacraft written in the old Minecraft logo style. ... Left to right: A pig, Steve, and a sheep Betacraft Launcher Download Now! Server IP: betacraft.uk (b1.7.3).
-                </div>
-              </div>
-            </div>
-			
-			
-			<div class="faq_card" style="background: #fff9e6; border: 1px solid #ffeeb3;">
-  <img src="img/ogsteam.png" alt="icon" style="width: 32px; height: 32px; margin-top: -4px;">
-  <div style="flex:1;">
-    <div id="faq_title">
-      OGSteam
-	  <a href="ogsteam.html" style="background: #16a34a; color: white; padding: 6px 16px; border-radius: 40px; font-size: 14px; font-weight: 600; text-decoration: none; transition: 0.2s;">
-        <b>Бесплатно</b>
-</a>
-                </div>
-                <div id="faq_content">
-                 Link to the OGSteam Homepage. STORE. Home Discovery Queue Wishlist Points Shop News Charts. ... OGSteam Gift Cards. Give the Gift of Game.
-                </div>
-              </div>
-            </div>
-			
-			
-			
-			
-			<div class="faq_card" style="background: #fff9e6; border: 1px solid #ffeeb3;">
-  <img src="img/pvz.png" alt="icon" style="width: 32px; height: 32px; margin-top: -4px;">
-  <div style="flex:1;">
-    <div id="faq_title">
-      Plants vs. Zombies HD
-	  <a href="plants-vs-zombies.html" style="background: #800000; color: white; padding: 6px 16px; border-radius: 40px; font-size: 14px; font-weight: 600; text-decoration: none; transition: 0.2s;">
-        <b>Демо, далее $5,99</b>
-</a>
-                </div>
-                <div id="faq_content">
-                 Защитите свой дом от орд зомби с помощью цветов и растений! Классическая башенная защита.
-                </div>
-              </div>
-            </div>
-			
-			
-			
+             
 			
 
-			
-
-
-
-          </div>
-        </div>
-      </div>
-    </div>
+          </div> <!-- конец tab-content -->
+        </div> <!-- конец tabs -->
+      </div> <!-- конец content -->
+    </div> <!-- конец main -->
 
     <div class="footer">
       <div style="text-align: right; font-size: 11px;">
@@ -623,6 +634,6 @@
       </div>
     </div>
 
-  </div>
+  </div> <!-- конец container -->
 </body>
 </html>
